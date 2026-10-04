@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Etiket yaz — Dokun</title>
+<meta name="description" content="Boş bir NTAG213 etiketi telefonunla yaz: Google yorum, Instagram, WhatsApp, telefon. Android Chrome ile çalışır.">
+<meta name="theme-color" content="#0a0e13">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23c6ff3d'/%3E%3Cpath d='M10 12a8 8 0 0 1 0 8M14 9.5a12 12 0 0 1 0 13M18 7a16 16 0 0 1 0 18' fill='none' stroke='%230a0e13' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#c6ff3d"/><path d="M10 12a8 8 0 0 1 0 8M14 9.5a12 12 0 0 1 0 13M18 7a16 16 0 0 1 0 18" fill="none" stroke="#0a0e13" stroke-width="2.4" stroke-linecap="round"/></svg>
+      Dokun
+    </a>
+    <ul><li><a href="./">← Ana sayfa</a></li></ul>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap tool">
+    <div class="eyebrow">Ücretsiz araç</div>
+    <h1 style="font-size:clamp(30px,5vw,44px)">NFC etiketi yaz</h1>
+    <p class="lead" style="font-size:17px">Boş bir NTAG213 etiket al, aşağıya linkini yaz, telefonu etikete yaklaştır. Bitti.</p>
+
+    <div id="unsupported" class="unsupported">
+      <strong>Bu tarayıcı NFC yazmayı desteklemiyor.</strong><br>
+      Web NFC yalnızca <strong>Android'de Chrome</strong> ile (HTTPS üzerinden) çalışır. iPhone'da tarayıcıdan yazılamaz; <em>NFC Tools</em> ya da <em>NXP TagWriter</em> uygulamasını kullan. Aşağıdaki link tipi ve bayt hesabı yine de işine yarar.
+    </div>
+
+    <div class="field">
+      <label for="type">Ne yazılsın?</label>
+      <select id="type">
+        <option value="url">Web linki</option>
+        <option value="google">Google yorum (Place ID ile)</option>
+        <option value="instagram">Instagram profili</option>
+        <option value="whatsapp">WhatsApp mesajı</option>
+        <option value="tel">Telefon numarası</option>
+      </select>
+    </div>
+
+    <div class="field" id="f-main">
+      <label for="main" id="main-label">Link</label>
+      <input id="main" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://">
+      <small id="main-help"></small>
+    </div>
+
+    <div class="field" id="f-extra" hidden>
+      <label for="extra" id="extra-label">Mesaj</label>
+      <input id="extra" type="text" autocomplete="off" placeholder="Merhaba, bilgi almak istiyorum.">
+    </div>
+
+    <div class="field">
+      <label>Oluşan kayıt</label>
+      <div><code class="url" id="preview">—</code></div>
+      <div class="meter" id="meter" style="margin-top:12px"><i id="meter-bar"></i></div>
+      <div class="meter-label"><span id="meter-text">0 / 144 bayt</span><span>NTAG213</span></div>
+    </div>
+
+    <div class="field">
+      <label class="check"><input type="checkbox" id="lock"> <span>Yazdıktan sonra <strong>kalıcı olarak salt okunur</strong> yap. <span style="color:var(--warn)">Geri alınamaz</span> — önce kilitsiz yazıp telefonunla test et.</span></label>
+    </div>
+
+    <div class="cta" style="margin-top:0">
+      <button class="btn primary" id="write">Etikete yaz</button>
+      <button class="btn ghost" id="read">Etiketi oku (test)</button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <p class="note-small" style="margin-top:28px">Yazarken etiketi telefonun NFC alanına (genellikle arka üst kısım) 1–2 cm yaklaştır ve yazma bitene kadar oynatma. Etiketi doğrudan metal yüzeye yapıştırma; çip ile metal arasında boşluk ya da “metal üstü” etiket gerekir.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Dokun — bir <strong>Candemsoft</strong> ürünüdür.</div>
+    <div>Bu sayfa hiçbir veriyi sunucuya göndermez; her şey tarayıcında çalışır.</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
